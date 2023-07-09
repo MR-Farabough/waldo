@@ -1,0 +1,27 @@
+.card {
+	background-color: rgb(84, 184, 255);
+	padding: 15px;
+	border-radius: 10px;
+	height: 350px;
+	width: 350px;
+	cursor: pointer;
+	margin: 35px;
+}
+
+.card:hover {
+	transform: scale(1.01);
+	transition: transform 0.5s;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.preview {
+	border-radius: 10px;
+	height: 90%;
+	width: 100%;
+}
+
+.card-title {
+	color: white;
+	text-align: center;
+	font-weight: 100;
+}
