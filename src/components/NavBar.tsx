@@ -16,11 +16,11 @@ const NavBar = ({ title, gameSelection, timer }: Props) => {
 		return time;
 	};
 	return (
-		<div className="navBar">
+		<nav className="navBar">
 			<h1 className="navText">{gameSelection}</h1>
 			<h1 className="navText">{title}</h1>
 			{timer ? <h1 className="navText">{startTimer()}</h1> : <h1></h1>}
-		</div>
+		</nav>
 	);
 };
 

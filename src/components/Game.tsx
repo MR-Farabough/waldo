@@ -8,17 +8,17 @@ const Game = () => {
 	<NavBar title="Where's Waldo" gameSelection={state.title} timer={true} />;
 
 	return (
-		<div className="main-game">
-			<div className="game-left">
+		<main className="main-game">
+			<section className="game-left">
 				<img className="game-picture" src={state.picture} alt="main-img" />
-			</div>
-			<div className="game-right">
+			</section>
+			<section className="game-right">
 				<p>character one</p>
 				<p>character two</p>
 				<p>character three</p>
 				<p>character four</p>
-			</div>
-		</div>
+			</section>
+		</main>
 	);
 };
 
