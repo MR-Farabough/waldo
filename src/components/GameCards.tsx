@@ -1,5 +1,11 @@
+import Card from './Card';
+
 const GameCards = () => {
-	return <div>GameCards</div>;
+	const gamePictures = [['src/assets/main.jpg', 'The Track']];
+	const builtCards = gamePictures.map((game, index) => {
+		return <Card title={game[1]} picture={game[0]} key={index} />;
+	});
+	return builtCards;
 };
 
 export default GameCards;
