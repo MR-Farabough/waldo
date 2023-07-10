@@ -1,7 +1,12 @@
 import './styles/App.css';
+import GameCards from './components/GameCards';
 
 function App() {
-	return <></>;
+	return (
+		<>
+			<GameCards />
+		</>
+	);
 }
 
 export default App;
