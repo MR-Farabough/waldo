@@ -1,5 +1,25 @@
+import { useLocation } from 'react-router-dom';
+import '../styles/Game.css';
+import NavBar from './NavBar';
+
 const Game = () => {
-	return <div>Game</div>;
+	const { state } = useLocation();
+	console.log(state);
+	<NavBar title="Where's Waldo" gameSelection={state.title} timer={true} />;
+
+	return (
+		<div className="main-game">
+			<div className="game-left">
+				<img className="game-picture" src={state.picture} alt="main-img" />
+			</div>
+			<div className="game-right">
+				<p>character one</p>
+				<p>character two</p>
+				<p>character three</p>
+				<p>character four</p>
+			</div>
+		</div>
+	);
 };
 
 export default Game;
