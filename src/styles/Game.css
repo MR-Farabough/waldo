@@ -22,3 +22,10 @@
 	height: 100%;
 	width: 100%;
 }
+
+.selector {
+	border: 5px solid black;
+	border-radius: 25%;
+	height: 50px;
+	width: 50px;
+}
