@@ -7,14 +7,33 @@ const Game = () => {
 	const roundToThousandth = (num: number) => {
 		return Math.round((num + Number.EPSILON) * 1000) / 1000;
 	};
+
+	function create(event: MouseEvent) {
+		let div = document.createElement('div');
+		div.classList.add('selector');
+		div.style.position = 'absolute';
+		div.style.left = event.clientX - 25 + 'px';
+		div.style.top = event.clientY - 25 + 'px';
+		document.body.appendChild(div);
+	}
+
+	function removeSelection() {
+		let div = document.querySelector('.selector');
+		if (div) {
+			div.remove();
+		}
+	}
+
 	useEffect(() => {
 		const getClickPosition = (e: any) => {
 			const gamePicture = document.querySelector('.game-left');
 			if (gamePicture) {
+				removeSelection();
 				const rect = gamePicture.getBoundingClientRect();
 				const xPosition = (e.clientX - rect.left) / rect.width;
 				const yPosition = (e.clientY - rect.top) / rect.height;
 				console.log(roundToThousandth(xPosition), roundToThousandth(yPosition));
+				create(e);
 			}
 		};
 		const gamePicture = document.querySelector('.game-left');
