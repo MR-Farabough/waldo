@@ -4,23 +4,54 @@ import '../styles/Game.css';
 
 const Game = () => {
 	const { state } = useLocation();
+	const characterList = [
+		'Character 1',
+		'Character 2',
+		'Character 3',
+		'Character 4',
+	];
 	const roundToThousandth = (num: number) => {
 		return Math.round((num + Number.EPSILON) * 1000) / 1000;
 	};
 
 	function create(event: MouseEvent) {
-		let div = document.createElement('div');
-		div.classList.add('selector');
-		div.style.position = 'absolute';
-		div.style.left = event.clientX - 25 + 'px';
-		div.style.top = event.clientY - 25 + 'px';
-		document.body.appendChild(div);
+		let square = document.createElement('div');
+		square.classList.add('selector');
+		square.style.position = 'absolute';
+		square.style.left = event.clientX - 25 + 'px';
+		square.style.top = event.clientY - 25 + 'px';
+		document.body.appendChild(square);
+	}
+
+	function createCharacterDropDown(event: MouseEvent) {
+		let dropDown = document.createElement('div');
+		dropDown.classList.add('character-dropdown');
+		dropDown.style.position = 'absolute';
+		dropDown.style.left = event.clientX + 25 + 'px';
+		dropDown.style.top = event.clientY - 25 + 'px';
+		document.body.appendChild(dropDown);
+		// Add character list from array
+		characterList.forEach((character) => {
+			let characterBtn = document.createElement('button');
+			characterBtn.classList.add('character');
+			characterBtn.innerText = character;
+			dropDown.appendChild(characterBtn);
+		});
+		const characterBtns = document.querySelectorAll('.character');
+		characterBtns.forEach((btn) => {
+			btn.addEventListener('click', () => {
+				removeSelection();
+				//TODO Handle Logic for character selection
+			});
+		});
 	}
 
 	function removeSelection() {
 		let div = document.querySelector('.selector');
-		if (div) {
+		let div2 = document.querySelector('.character-dropdown');
+		if (div && div2) {
 			div.remove();
+			div2.remove();
 		}
 	}
 
@@ -34,6 +65,7 @@ const Game = () => {
 				const yPosition = (e.clientY - rect.top) / rect.height;
 				console.log(roundToThousandth(xPosition), roundToThousandth(yPosition));
 				create(e);
+				createCharacterDropDown(e);
 			}
 		};
 		const gamePicture = document.querySelector('.game-left');
