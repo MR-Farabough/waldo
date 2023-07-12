@@ -31,15 +31,14 @@
 }
 
 .character-dropdown {
-	overflow: auto;
-	transition: scale(0.8);
 	background-color: rgb(0, 0, 0, 0.5);
-	height: 150px;
+	height: fit-content;
 	width: 80px;
 }
 
 .character {
 	cursor: pointer;
+	width: 60px;
 	height: 35px;
 	background-color: rgb(203, 203, 203);
 	border: 1px solid black;
@@ -51,4 +50,16 @@
 	background-color: rgba(255, 252, 167, 0.8);
 	box-shadow: 2px 2px 2px black;
 	border-radius: 10px;
+}
+
+.character-div {
+	width: 100%;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.character-img {
+	height: 100px;
+	width: 80px;
 }
