@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import '../styles/index.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface Props {
 	title: string;
@@ -9,10 +9,7 @@ interface Props {
 }
 
 const NavBar = ({ title, gameSelection, timer }: Props) => {
-	const navigate = useNavigate();
-	const handleClick = () => {
-		navigate('/');
-	};
+	const [path, setPath] = useState(window.location.pathname);
 	let [time, setTime] = useState(0);
 	const startTimer = () => {
 		setTimeout(() => {
@@ -20,13 +17,29 @@ const NavBar = ({ title, gameSelection, timer }: Props) => {
 		}, 1000);
 		return time;
 	};
+	useEffect(() => {
+		setPath(window.location.pathname);
+		startTimer();
+	}, [window.location.pathname]);
+	const navigate = useNavigate();
+	const handleClick = () => {
+		navigate('/');
+	};
+	if (path === '/game') {
+		gameSelection = 'The Pond';
+		startTimer();
+	} else {
+		gameSelection = '';
+		time = 0;
+	}
+
 	return (
 		<nav className="navBar">
 			<h1 className="navText">{gameSelection}</h1>
 			<h1 onClick={handleClick} className="navText home">
 				{title}
 			</h1>
-			{timer ? <h1 className="navText">{startTimer()}</h1> : <h1></h1>}
+			{timer ? <h1 className="navText">{time}</h1> : <h1></h1>}
 		</nav>
 	);
 };
