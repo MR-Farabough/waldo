@@ -1,15 +1,13 @@
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
+import waldo from '../assets/waldo.jpg';
+import wilma from '../assets/wilma.jpg';
+import wizard from '../assets/wizard.jpg';
 import '../styles/Game.css';
 
 const Game = () => {
 	const { state } = useLocation();
-	const characterList = [
-		'Character 1',
-		'Character 2',
-		'Character 3',
-		'Character 4',
-	];
+	const characterList = ['Waldo', 'Wilma', 'Wizard'];
 	const roundToThousandth = (num: number) => {
 		return Math.round((num + Number.EPSILON) * 1000) / 1000;
 	};
@@ -85,10 +83,18 @@ const Game = () => {
 				<img className="game-picture" src={state.picture} alt="main-img" />
 			</section>
 			<section className="game-right">
-				<p>character one</p>
-				<p>character two</p>
-				<p>character three</p>
-				<p>character four</p>
+				<div className="character-div">
+					<img className="character-img" src={waldo} alt="waldo" />
+					<p>Waldo</p>
+				</div>
+				<div className="character-div">
+					<img className="character-img" src={wilma} alt="wilma" />
+					<p>Wilma</p>
+				</div>
+				<div className="character-div">
+					<img className="character-img" src={wizard} alt="wizard" />
+					<p>Wizard</p>
+				</div>
 			</section>
 		</main>
 	);
