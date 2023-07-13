@@ -31,6 +31,8 @@ const NavBar = ({ title, gameSelection, timer }: Props) => {
 	} else {
 		gameSelection = '';
 		time = 0;
+		document.querySelector('.selector')?.remove();
+		document.querySelector('.character-dropdown')?.remove();
 	}
 
 	return (
