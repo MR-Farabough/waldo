@@ -10016,9 +10016,9 @@ function Fv() {
 		children: [e && alert(`You solved it in ${e} seconds`), D.jsx(zv, {})],
 	});
 }
-const Mv = '/assets/waldo-1a370fa3.jpg',
-	bv = '/assets/wilma-64ca72ef.jpg',
-	Bv = '/assets/wizard-51acf442.jpg';
+const Mv = './assets/waldo-1a370fa3.jpg',
+	bv = './assets/wilma-64ca72ef.jpg',
+	Bv = './assets/wizard-51acf442.jpg';
 const Hv = 'modulepreload',
 	Vv = function (e) {
 		return '/' + e;
