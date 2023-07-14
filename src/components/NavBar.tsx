@@ -41,7 +41,7 @@ const NavBar = ({ title, gameSelection, timer }: Props) => {
 			<h1 onClick={handleClick} className="navText home">
 				{title}
 			</h1>
-			{timer ? <h1 className="navText">{time}</h1> : <h1></h1>}
+			{timer ? <h1 className="navText timer">{time}</h1> : <h1></h1>}
 		</nav>
 	);
 };
